@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to JobHub" />
+    <HelloWorld msg="Welcome to JobSlob" />
   </div>
 </template>
 
