@@ -1,27 +1,33 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to JobSlob" />
+    <Navbar />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Navbar from "./components/Navbar.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    Navbar,
+  },
+  data: () => {
+    return {};
   },
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: minmax(250px, 25%) 1fr;
+  }
 }
 </style>
