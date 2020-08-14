@@ -14,7 +14,7 @@ export default {
   props: {
     companyName: String,
   },
-  data: () => {
+  data() {
     return { logo };
   },
 };
@@ -39,6 +39,7 @@ export default {
 
   @include tablet {
     display: inline;
+    text-align: center;
   }
 }
 .logo-img {

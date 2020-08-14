@@ -1,13 +1,14 @@
 <template>
   <div class="nav-wrapper">
     <Logo :companyName="companyName" />
-    <MobileMenu />
+    <MobileMenu v-if="isMobile" />
   </div>
 </template>
 
 <script>
 import Logo from "@/components/Logo.vue";
 import MobileMenu from "@/components/MobileMenu.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "Navbar",
@@ -15,11 +16,12 @@ export default {
     Logo,
     MobileMenu,
   },
-  data: () => {
+  data() {
     return {
       companyName: "JobSlob",
     };
   },
+  computed: mapState(["isMobile"]),
 };
 </script>
 

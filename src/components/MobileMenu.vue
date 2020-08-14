@@ -1,5 +1,5 @@
 <template>
-  <div class="mobile-menu-wrapper">
+  <div @click="handleClick" class="mobile-menu-wrapper">
     <span></span>
     <span></span>
     <span></span>
@@ -9,6 +9,11 @@
 <script>
 export default {
   name: "MobileMenu",
+  methods: {
+    handleClick(e) {
+      console.log(e.target);
+    },
+  },
 };
 </script>
 
