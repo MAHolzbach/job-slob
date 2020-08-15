@@ -1,5 +1,5 @@
 <template>
-  <div id="app" >
+  <div id="app" class="flex flex-col justify-center items-center md:grid md:grid-cols-desktop">
     <Navbar />
   </div>
 </template>
@@ -31,15 +31,6 @@
   };
 </script>
 
-<style lang="scss">
-  #app {
-    @apply flex flex-col justify-center items-center;
-
-    @media screen and (min-width: 768px) {
-      display: grid;
-      grid-template-columns: minmax(250px, 25%) 1fr;
-    }
-  }
-</style>
+<style></style>
 
 <style src="./assets/tailwind.css">
