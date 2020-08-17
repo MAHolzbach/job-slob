@@ -1,5 +1,8 @@
 <template>
-  <div id="app" class="flex flex-col justify-center items-center md:grid md:grid-cols-desktop">
+  <div
+    id="app"
+    class="flex flex-col justify-center items-center md:grid md:grid-cols-desktop overflow-hidden"
+  >
     <Navbar />
   </div>
 </template>
@@ -19,9 +22,7 @@
       window.removeEventListener("resize", this.setIsMobile);
     },
     data() {
-      return {
-        count: this.$store.state.count,
-      };
+      return {};
     },
     methods: {
       setIsMobile() {
