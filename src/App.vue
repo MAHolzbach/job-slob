@@ -1,7 +1,7 @@
 <template>
   <div
     id="app"
-    class="overflow-x-hidden flex flex-col justify-center items-center md:grid md:grid-cols-desktop"
+    class="overflow-x-hidden flex flex-col justify-center items-center md:grid md:grid-cols-desktop font-appFont"
   >
     <Navbar />
   </div>

@@ -15,7 +15,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      logo: ["Chau Philomene One", "sans-serif"],
+      appFont: ["Roboto", "sans-serif"],
+      logoFont: ["Chau Philomene One", "sans-serif"],
     },
   },
   variants: {},
