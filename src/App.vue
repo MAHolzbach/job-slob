@@ -1,7 +1,7 @@
 <template>
   <div
     id="app"
-    class="flex flex-col justify-center items-center md:grid md:grid-cols-desktop overflow-hidden"
+    class="overflow-x-hidden flex flex-col justify-center items-center md:grid md:grid-cols-desktop"
   >
     <Navbar />
   </div>
@@ -16,6 +16,10 @@
       Navbar,
     },
     created() {
+      const body = document.querySelector('body')
+      const html = document.querySelector('html')
+      body.classList = ['overflow-x-hidden']
+      html.classList = ['overflow-x-hidden']
       window.addEventListener("resize", this.setIsMobile);
     },
     destroyed() {
