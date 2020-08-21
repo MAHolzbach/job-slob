@@ -1,6 +1,7 @@
 <template>
-  <div class="overflow-x-hidden flex justify-between items-start w-full pl-4">
+  <div class="my-4 flex justify-between items-start w-full px-4">
     <Logo :companyName="companyName" />
+    <p class="md:hidden font-logoFont m-1 mr-4 md:m-4 text-2xl">JobSlob</p>
     <MobileMenu v-if="isMobile" />
   </div>
 </template>
