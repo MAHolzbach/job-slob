@@ -25,22 +25,22 @@
       class="transition-all duration-500 ease-in-out bg-gray-400 min-h-screen px-8 pt-16"
       :class="menuOpen ? 'open' : 'closed'"
     >
-      <li class="text-2xl py-3 hover:text-blue-700">
-        <a href="#" class="py-2 ">Home</a>
+      <li @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
+        <router-link class="py-2" to="/">Home</router-link>
       </li>
-      <li class="text-2xl py-3 hover:text-blue-700">
-        <a href="#" class="py-2 ">Search</a>
+      <li @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
+        <router-link class="py-2" to="/search">Search</router-link>
       </li>
-      <li class="text-2xl py-3 hover:text-blue-700">
+      <li @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
         <a href="#" class="py-2 ">Favorites</a>
       </li>
-      <li class="text-2xl py-3 hover:text-blue-700">
+      <li @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
         <a href="#" class="py-2 ">Top Companies</a>
       </li>
-      <li class="text-2xl py-3 hover:text-blue-700">
+      <li @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
         <a href="#" class="py-2 ">Post Job</a>
       </li>
-      <li class="text-2xl py-3 hover:text-blue-700">
+      <li @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
         <a href="#" class="py-2 ">Report Listing</a>
       </li>
     </ul>

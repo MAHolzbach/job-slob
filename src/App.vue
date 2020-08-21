@@ -4,6 +4,7 @@
     class="overflow-x-hidden flex flex-col justify-center items-center md:grid md:grid-cols-desktop font-appFont"
   >
     <Navbar />
+    <router-view/>
   </div>
 </template>
 
@@ -35,7 +36,5 @@
     },
   };
 </script>
-
-<style></style>
 
 <style src="./assets/tailwind.css">
