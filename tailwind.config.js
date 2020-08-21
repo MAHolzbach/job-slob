@@ -2,6 +2,13 @@ module.exports = {
   purge: [],
   theme: {
     extend: {
+      colors: {
+        mainBlue: "#2857f8",
+        grayBlue: "#7588ad",
+        lightGray: "#eef0f1",
+        midGray: "#bbc2ca",
+        darkGray: "#46494a",
+      },
       gridTemplateColumns: {
         desktop: "minmax(250px, 25%) 1fr",
       },

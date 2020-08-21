@@ -1,42 +1,51 @@
 <template>
-  <div class="pt-2 relative mx-auto text-gray-600">
-    <label class="block text-gray-700 text-lg mb-2" for="job-title">
-      Job title
-    </label>
-    <input
-      class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-md text-gray-800 focus:outline-none"
-      type="search"
-      name="job-title"
-      placeholder="Job title"
-    />
-    <button
-      type="submit"
-      class="absolute p-3 right-0 border-solid border-l-2 border-gray-300"
-    >
-      <svg
-        class="text-gray-600 h-4 w-4 fill-current"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        version="1.1"
-        id="Capa_1"
-        x="0px"
-        y="0px"
-        viewBox="0 0 56.966 56.966"
-        style="enable-background:new 0 0 56.966 56.966;"
-        xml:space="preserve"
-        width="512px"
-        height="512px"
-      >
-        <path
-          d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+  <div class="w-full max-w-xs">
+    <p class="pb-6 text-center">{{ totalJobNumber }} jobs available</p>
+    <form class="shadow-lg rounded px-8 pt-6 pb-8 mb-6 border">
+      <div class="mb-4">
+        <label class="block text-darkGray text-lg mb-2 pl-1" for="what">
+          What
+        </label>
+        <input
+          class="border-2 border-midGray-300 bg-white h-10 px-5 w-full rounded-lg text-md text-darkGray focus:outline-none"
+          type="search"
+          name="what"
+          placeholder="Job title, keyword, company"
         />
-      </svg>
-    </button>
+      </div>
+      <div class="mb-6">
+        <label class="block text-darkGray text-lg mb-2 pl-1" for="where">
+          Where
+        </label>
+        <input
+          class="border-2 border-midGray-300 bg-white h-10 px-5 w-full rounded-lg text-md text-gray-800 focus:outline-none"
+          type="search"
+          name="where"
+          placeholder="city, state, zip, etc."
+        />
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-mainBlue hover:bg-blue-700 text-lightGray py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+          type="button"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+    <Recent />
   </div>
 </template>
 
 <script>
+import Recent from "./Recent.vue";
+import { mapState } from "vuex";
+
 export default {
   name: "Search",
+  components: {
+    Recent,
+  },
+  computed: mapState(["totalJobNumber"]),
 };
 </script>
