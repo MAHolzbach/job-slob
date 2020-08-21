@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="mobileNavMenu">
     <div
       @click="handleClick"
       @dblclick="handleClick"
@@ -22,24 +22,21 @@
       ></span>
     </div>
     <div
-      class="bg-gray-400 transform top-0 right-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-10"
+      class="bg-midGray transform top-0 right-0 w-64 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-10"
       :class="menuOpen ? 'translate-x-0' : 'translate-x-full'"
     >
       <div class="m-10 flex flex-col">
-        <a @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
+        <a @click="handleClick" class="text-2xl py-3 hover:text-mainBlue">
           <router-link class="py-2" to="/">Home</router-link>
         </a>
-        <a @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
-          <a href="#" class="py-2 ">Favorites</a>
+        <a @click="handleClick" class="text-2xl py-3 hover:text-mainBlue">
+          <router-link class="py-2" to="/favorites">Favorites</router-link>
         </a>
-        <a @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
-          <a href="#" class="py-2 ">Top Companies</a>
+        <a @click="handleClick" class="text-2xl py-3 hover:text-mainBlue">
+          <router-link class="py-2" to="/top">Top Companies</router-link>
         </a>
-        <a @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
-          <a href="#" class="py-2 ">Post Job</a>
-        </a>
-        <a @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
-          <a href="#" class="py-2 ">Report Listing</a>
+        <a @click="handleClick" class="text-2xl py-3 hover:text-mainBlue">
+          <router-link class="py-2" to="/post">Post Job</router-link>
         </a>
       </div>
     </div>
