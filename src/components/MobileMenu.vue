@@ -1,9 +1,9 @@
 <template>
-  <div class="h-screen">
+  <div>
     <div
       @click="handleClick"
       @dblclick="handleClick"
-      class="cursor-pointer relative z-10 float-right py-6 pr-8"
+      class="cursor-pointer relative z-20 float-right py-4"
     >
       <span
         class="block w-8 h-1 w-1 mb-1 relative bg-black rounded z-1 transition-all duration-500 ease-in-out origin-right"
@@ -21,29 +21,28 @@
         }"
       ></span>
     </div>
-    <ul
-      class="transition-all duration-500 ease-in-out bg-gray-400 min-h-screen px-8 pt-16"
-      :class="menuOpen ? 'open' : 'closed'"
+    <div
+      class="bg-gray-400 transform top-0 right-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-10"
+      :class="menuOpen ? 'translate-x-0' : 'translate-x-full'"
     >
-      <li @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
-        <router-link class="py-2" to="/">Home</router-link>
-      </li>
-      <li @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
-        <router-link class="py-2" to="/search">Search</router-link>
-      </li>
-      <li @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
-        <a href="#" class="py-2 ">Favorites</a>
-      </li>
-      <li @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
-        <a href="#" class="py-2 ">Top Companies</a>
-      </li>
-      <li @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
-        <a href="#" class="py-2 ">Post Job</a>
-      </li>
-      <li @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
-        <a href="#" class="py-2 ">Report Listing</a>
-      </li>
-    </ul>
+      <div class="m-10 flex flex-col">
+        <a @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
+          <router-link class="py-2" to="/">Home</router-link>
+        </a>
+        <a @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
+          <a href="#" class="py-2 ">Favorites</a>
+        </a>
+        <a @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
+          <a href="#" class="py-2 ">Top Companies</a>
+        </a>
+        <a @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
+          <a href="#" class="py-2 ">Post Job</a>
+        </a>
+        <a @click="handleClick" class="text-2xl py-3 hover:text-blue-700">
+          <a href="#" class="py-2 ">Report Listing</a>
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -62,14 +61,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.closed {
-  transform-origin: 0% 0%;
-  transform: translate(150%, 0);
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-.open {
-  transform: none;
-}
-</style>

@@ -10,7 +10,7 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   base: "/",
   mode: "history",
-  routes: [{ path: "/search", component: Search }],
+  routes: [{ path: "/", component: Search }],
 });
 
 Vue.config.productionTip = false;
