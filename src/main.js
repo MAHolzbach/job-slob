@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 
 import App from "./App.vue";
 import Search from "./components/Search.vue";
-import Favorites from "./components/Favorites.vue";
+import Applied from "./components/Applied.vue";
 import TopCompanies from "./components/TopCompanies.vue";
 import PostJob from "./components/PostJob.vue";
 
@@ -16,7 +16,7 @@ const router = new VueRouter({
   mode: "history",
   routes: [
     { path: "/", component: Search },
-    { path: "/favorites", component: Favorites },
+    { path: "/applied", component: Applied },
     { path: "/top", component: TopCompanies },
     { path: "/post", component: PostJob },
   ],
