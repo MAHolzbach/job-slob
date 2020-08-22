@@ -22,39 +22,51 @@
       ></span>
     </div>
     <div
-      class="bg-midGray transform top-0 right-0 w-64 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-10"
+      class="bg-white transform top-0 right-0 w-full fixed h-full overflow-auto ease-in-out transition-all duration-300 z-10"
       :class="menuOpen ? 'translate-x-0' : 'translate-x-full'"
     >
       <div class="m-10 flex flex-col">
-        <a @click="handleClick" class="text-2xl py-3 hover:text-mainBlue">
-          <router-link class="py-2" to="/">Home</router-link>
-        </a>
-        <a @click="handleClick" class="text-2xl py-3 hover:text-mainBlue">
-          <router-link class="py-2" to="/favorites">Favorites</router-link>
-        </a>
-        <a @click="handleClick" class="text-2xl py-3 hover:text-mainBlue">
-          <router-link class="py-2" to="/top">Top Companies</router-link>
-        </a>
-        <a @click="handleClick" class="text-2xl py-3 hover:text-mainBlue">
-          <router-link class="py-2" to="/post">Post Job</router-link>
-        </a>
+        <router-link class="py-2" to="/">
+          <p
+            @click="handleClick"
+            class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
+          >Home</p>
+        </router-link>
+        <router-link class="py-2" to="/applied">
+          <p
+            @click="handleClick"
+            class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
+          >Applied</p>
+        </router-link>
+        <router-link class="py-2" to="/top">
+          <p
+            @click="handleClick"
+            class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
+          >Top Companies</p>
+        </router-link>
+        <router-link class="py-2" to="/post">
+          <p
+            @click="handleClick"
+            class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
+          >Post Job</p>
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: "MobileMenu",
-  methods: {
-    handleClick() {
-      this.menuOpen = !this.menuOpen;
+  export default {
+    name: "MobileMenu",
+    methods: {
+      handleClick() {
+        this.menuOpen = !this.menuOpen;
+      },
     },
-  },
-  data() {
-    return {
-      menuOpen: false,
-    };
-  },
-};
+    data() {
+      return {
+        menuOpen: false,
+      };
+    },
+  };
 </script>
