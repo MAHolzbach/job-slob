@@ -41,18 +41,23 @@
         </button>
       </div>
     </form>
-    <Recent :recentSearches="recentSearches" />
+    <Recent v-if="searchResults.length <= 0" :recentSearches="recentSearches" />
+    <div v-else>
+      <SearchResults :searchResults="searchResults" />
+    </div>
   </div>
 </template>
 
 <script>
 import Recent from "./Recent.vue";
+import SearchResults from "./SearchResults.vue";
 import { mapState } from "vuex";
 
 export default {
   name: "Search",
   components: {
     Recent,
+    SearchResults,
   },
   data() {
     return {

@@ -31,7 +31,8 @@ const store = new Vuex.Store({
         )
         .then((res) => {
           state.searchResults = res.data;
-        });
+        })
+        .catch((error) => console.log(error));
     },
   },
 });
