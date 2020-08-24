@@ -4,7 +4,7 @@
       <span class="text-mainBlue">{{ totalJobNumber }}</span> jobs available
     </p>
     <form
-      class="shadow-lg rounded px-8 pt-6 pb-8 mb-6 border"
+      class="shadow-lg rounded-lg px-8 pt-6 pb-8 mb-6 border"
       @submit="submitSearch"
     >
       <div class="mb-4">
@@ -33,11 +33,12 @@
       </div>
       <div class="flex items-center justify-between">
         <button
-          class="bg-mainBlue hover:bg-blue-700 text-lightGray py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+          class="bg-mainBlue hover:bg-blue-700 text-lightGray py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full min-h-40"
           type="submit"
           @click="submitSearch"
         >
-          Search
+          <span v-if="showSpinner" class="spinner relative"></span>
+          <p v-else>Search</p>
         </button>
       </div>
     </form>
@@ -65,7 +66,12 @@ export default {
       location: "",
     };
   },
-  computed: mapState(["totalJobNumber", "recentSearches", "searchResults"]),
+  computed: mapState([
+    "totalJobNumber",
+    "recentSearches",
+    "searchResults",
+    "showSpinner",
+  ]),
   methods: {
     submitSearch(e) {
       e.preventDefault();
@@ -77,3 +83,25 @@ export default {
   },
 };
 </script>
+
+<style>
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border-top: 2px solid white;
+  border-right: 2px solid transparent;
+  animation: spinner 0.6s linear infinite;
+}
+</style>

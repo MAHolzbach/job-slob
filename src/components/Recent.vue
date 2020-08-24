@@ -4,18 +4,20 @@
       <p class="font-medium">RECENT SEARCHES</p>
       <button
         class="bg-lightGray hover:bg-midGray text-darkGray font-medium py-1 px-4 rounded-full"
-      >Edit</button>
+      >
+        Edit
+      </button>
     </div>
     <div
       v-for="search in recentSearches"
       :key="search.id"
-      class="flex items-center justify-between my-4 p-4 border cursor-pointer hover:underline"
+      class="flex items-center justify-between my-4 p-4 border rounded-lg cursor-pointer hover:underline"
     >
       <div>
-        <p>{{search.what}}</p>
+        <p>{{ search.what }}</p>
         <p>
-          <span class="text-mainBlue">{{search.howMany}} new</span>
-          in {{search.where}}
+          <span class="text-mainBlue">{{ search.howMany }} new</span>
+          in {{ search.where }}
         </p>
       </div>
       <svg role="img" class="h-6 w-6" aria-label focusable="false">
@@ -28,13 +30,13 @@
 </template>
 
 <script>
-  export default {
-    name: "Recent",
-    props: {
-      recentSearches: {
-        type: Array,
-        default: () => [],
-      },
+export default {
+  name: "Recent",
+  props: {
+    recentSearches: {
+      type: Array,
+      default: () => [],
     },
-  };
+  },
+};
 </script>
