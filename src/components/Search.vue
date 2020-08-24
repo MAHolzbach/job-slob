@@ -95,10 +95,11 @@ export default {
   content: "";
   box-sizing: border-box;
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
   width: 20px;
   height: 20px;
+  margin-top: -10px;
   border-radius: 50%;
   border-top: 2px solid white;
   border-right: 2px solid transparent;
