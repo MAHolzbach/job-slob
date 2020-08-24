@@ -18,6 +18,7 @@ const store = new Vuex.Store({
       { id: 2, what: "Vue Developer", where: "Colorado", howMany: 9 },
       { id: 3, what: "Reactjs", where: "United States", howMany: 82 },
     ],
+    showSpinner: false,
     searchResults: [],
   },
   mutations: {
@@ -25,12 +26,18 @@ const store = new Vuex.Store({
       state.isMobile = window.innerWidth < 768;
     },
     searchForJobs(state, payload) {
+      state.showSpinner = true;
       axios
         .get(
           `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${payload.description}&location=${payload.location}`
         )
         .then((res) => {
           state.searchResults = res.data;
+          state.showSpinner = false;
+        })
+        .catch((error) => {
+          console.log(error);
+          state.showSpinner = false;
         });
     },
   },
