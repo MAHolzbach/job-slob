@@ -20,6 +20,7 @@ const store = new Vuex.Store({
     ],
     showSpinner: false,
     searchResults: [],
+    favorites: [],
   },
   mutations: {
     setIsMobile(state) {
@@ -39,6 +40,20 @@ const store = new Vuex.Store({
           console.log(error);
           state.showSpinner = false;
         });
+    },
+    updateFavorites(state, payload) {
+      const favoritedJob = state.searchResults.filter(
+        (result) => result.id === payload.id
+      );
+      const jobAlreadyFavorited =
+        state.favorites.filter((favorite) => favorite.id === payload.id)
+          .length > 0;
+
+      jobAlreadyFavorited
+        ? (state.favorites = state.favorites.filter(
+            (favorite) => favorite.id !== payload.id
+          ))
+        : (state.favorites = [...state.favorites, ...favoritedJob]);
     },
   },
 });

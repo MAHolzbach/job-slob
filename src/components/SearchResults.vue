@@ -6,8 +6,21 @@
       }}
       found.
     </p>
-    <div
+    <router-link
       v-for="job in searchResults"
+      :to="{
+        name: 'job',
+        params: {
+          id: job.id,
+          title: job.title,
+          company: job.company,
+          location: job.location,
+          logo: job.company_logo,
+          description: job.description,
+          apply: job.how_to_apply,
+          companyUrl: job.company_url,
+        },
+      }"
       :key="job.id"
       class="border-2 border-lightGray rounded-lg shadow-sm flex p-2 mb-4 hover:shadow-lg hover:border-mainBlue cursor-pointer"
     >
@@ -29,7 +42,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 

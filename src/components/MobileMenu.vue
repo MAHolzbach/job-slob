@@ -30,25 +30,33 @@
           <p
             @click="handleClick"
             class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
-          >Home</p>
+          >
+            Home
+          </p>
         </router-link>
         <router-link class="py-2" to="/applied">
           <p
             @click="handleClick"
             class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
-          >Applied</p>
+          >
+            Applied
+          </p>
         </router-link>
-        <router-link class="py-2" to="/top">
+        <router-link class="py-2" to="/favorites">
           <p
             @click="handleClick"
             class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
-          >Top Companies</p>
+          >
+            Favorites
+          </p>
         </router-link>
         <router-link class="py-2" to="/post">
           <p
             @click="handleClick"
             class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
-          >Post Job</p>
+          >
+            Post Job
+          </p>
         </router-link>
       </div>
     </div>
@@ -56,17 +64,17 @@
 </template>
 
 <script>
-  export default {
-    name: "MobileMenu",
-    methods: {
-      handleClick() {
-        this.menuOpen = !this.menuOpen;
-      },
+export default {
+  name: "MobileMenu",
+  methods: {
+    handleClick() {
+      this.menuOpen = !this.menuOpen;
     },
-    data() {
-      return {
-        menuOpen: false,
-      };
-    },
-  };
+  },
+  data() {
+    return {
+      menuOpen: false,
+    };
+  },
+};
 </script>
