@@ -1,11 +1,14 @@
 <template>
-  <div class="flex flex-col justify-center items-center font-logoFont">
+  <router-link
+    to="/"
+    class="flex flex-col justify-center items-center font-logoFont"
+  >
     <p class="hidden md:inline m-1 md:m-4 text-2xl">{{ companyName }}</p>
     <img :src="logo" alt="logo" class="w-20 lg:w-40" />
     <h2 class="hidden md:inline md:text-center">
       Git a Job
     </h2>
-  </div>
+  </router-link>
 </template>
 
 <script>

@@ -32,6 +32,9 @@ module.exports = {
       translate: {
         arrowPointer: "14px",
       },
+      height: {
+        descriptionText: "16.5rem",
+      },
     },
     fontFamily: {
       appFont: ["Roboto", "sans-serif"],

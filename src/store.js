@@ -19,7 +19,9 @@ const store = new Vuex.Store({
       { id: 3, what: "Reactjs", where: "United States", howMany: 82 },
     ],
     showSpinner: false,
+    searchTerm: { description: "", location: "" },
     searchResults: [],
+    favorites: [],
   },
   mutations: {
     setIsMobile(state) {
@@ -29,16 +31,34 @@ const store = new Vuex.Store({
       state.showSpinner = true;
       axios
         .get(
-          `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${payload.description}&location=${payload.location}`
+          `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${payload.description}&location=${payload.location}&markdown=true`
         )
         .then((res) => {
           state.searchResults = res.data;
           state.showSpinner = false;
+          state.searchTerm = {
+            description: payload.description,
+            location: payload.location,
+          };
         })
         .catch((error) => {
           console.log(error);
           state.showSpinner = false;
         });
+    },
+    updateFavorites(state, payload) {
+      const favoritedJob = state.searchResults.filter(
+        (result) => result.id === payload.id
+      );
+      const jobAlreadyFavorited =
+        state.favorites.filter((favorite) => favorite.id === payload.id)
+          .length > 0;
+
+      jobAlreadyFavorited
+        ? (state.favorites = state.favorites.filter(
+            (favorite) => favorite.id !== payload.id
+          ))
+        : (state.favorites = [...state.favorites, ...favoritedJob]);
     },
   },
 });
