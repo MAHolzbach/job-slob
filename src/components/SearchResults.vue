@@ -4,7 +4,15 @@
       <span class="text-mainBlue"> {{ searchResults.length }} </span>job{{
         searchResults.length >= 2 ? "s" : ""
       }}
-      found.
+      found for
+      {{
+        searchTerm.description ? searchTerm.description : searchTerm.location
+      }}
+      {{
+        searchTerm.description && searchTerm.location
+          ? "in " + searchTerm.location
+          : ""
+      }}
     </p>
     <router-link
       v-for="job in searchResults"
@@ -19,6 +27,8 @@
           description: job.description,
           apply: job.how_to_apply,
           companyUrl: job.company_url,
+          howToApply: job.how_to_apply,
+          type: job.type,
         },
       }"
       :key="job.id"
@@ -32,8 +42,19 @@
           <p class="font-medium">{{ job.title }}</p>
           <p class="text-sm">{{ job.company }}</p>
         </div>
-        <div>
+        <div v-if="job.location !== 'Remote'">
           <p class="text-sm">{{ job.location }}</p>
+        </div>
+        <div>
+          <span
+            class="text-sm border radius-lg w-auto inline-block p-1 bg-lightGray rounded-lg text-darkGray mr-2"
+            >{{ job.type }}
+          </span>
+          <span
+            v-if="job.location === 'Remote'"
+            class="text-sm border radius-lg w-auto inline-block p-1 bg-lightGray rounded-lg text-darkGray"
+            >{{ job.location }}
+          </span>
         </div>
         <hr class="my-1" />
         <div>
@@ -47,6 +68,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "SearchResults",
   props: {
@@ -55,5 +78,6 @@ export default {
       default: () => [],
     },
   },
+  computed: mapState(["searchTerm"]),
 };
 </script>

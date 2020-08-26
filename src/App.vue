@@ -31,9 +31,6 @@
     destroyed() {
       window.removeEventListener("resize", this.setIsMobile);
     },
-    data() {
-      return {};
-    },
     methods: {
       setIsMobile() {
         this.$store.commit("setIsMobile");
