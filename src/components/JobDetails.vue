@@ -36,6 +36,8 @@
       <p class="text-lg font-semibold">How To Apply</p>
       <VueMarkdown>{{ howToApply }}</VueMarkdown>
     </div>
+    <hr class="my-4 w-full border" />
+    <Reviews />
   </div>
 </template>
 
@@ -43,6 +45,7 @@
 import VueMarkdown from "vue-markdown";
 import starIcon from "../assets/img/star.png";
 import starredIcon from "../assets/img/starred.png";
+import Reviews from "./Reviews.vue";
 import { mapState } from "vuex";
 
 export default {
@@ -62,6 +65,7 @@ export default {
   ],
   components: {
     VueMarkdown,
+    Reviews,
   },
   data() {
     return {
