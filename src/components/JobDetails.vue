@@ -11,10 +11,10 @@
         <p class="text-sm font-medium">{{ location }}</p>
       </div>
       <img
-        :src="isFavorited ? starredIcon : starIcon"
+        :src="isSaved ? starredIcon : starIcon"
         alt="favorite"
-        class="h-6 mt-2"
-        @click="updateFavorites"
+        class="h-6 mt-2 cursor-pointer"
+        @click="updateSaved"
       />
     </div>
     <hr class="my-4 w-full border" />
@@ -71,15 +71,15 @@ export default {
     return {
       starIcon,
       starredIcon,
-      isFavorited: false,
+      isSaved: false,
       expanded: false,
     };
   },
-  computed: mapState(["favorites"]),
+  computed: mapState(["saved"]),
   methods: {
-    updateFavorites() {
-      this.isFavorited = !this.isFavorited;
-      this.$store.commit("updateFavorites", {
+    updateSaved() {
+      this.isSaved = !this.isSaved;
+      this.$store.commit("updateSaved", {
         id: this.id,
         name: this.name,
         title: this.title,
@@ -91,10 +91,10 @@ export default {
         companyUrl: this.companyUrl,
       });
     },
-    checkIfFavorited() {
-      this.favorites.forEach((favorite) => {
-        if (favorite.id === this.id) {
-          this.isFavorited = true;
+    checkIfSaved() {
+      this.saved.forEach((saved) => {
+        if (saved.id === this.id) {
+          this.isSaved = true;
         }
       });
     },
@@ -103,7 +103,7 @@ export default {
     },
   },
   mounted() {
-    this.checkIfFavorited();
+    this.checkIfSaved();
   },
 };
 </script>

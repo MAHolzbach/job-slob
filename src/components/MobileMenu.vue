@@ -42,12 +42,12 @@
             Applied
           </p>
         </router-link>
-        <router-link class="py-2" to="/favorites">
+        <router-link class="py-2" to="/saved">
           <p
             @click="handleClick"
             class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
           >
-            Favorites
+            Saved Jobs
           </p>
         </router-link>
         <router-link class="py-2" to="/post">
