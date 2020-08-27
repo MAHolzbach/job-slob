@@ -22,6 +22,32 @@ const store = new Vuex.Store({
     searchTerm: { description: "", location: "" },
     searchResults: [],
     favorites: [],
+    reviews: [
+      {
+        id: 1,
+        name: "Fred Rogers",
+        img: "fredrogers",
+        title: "Friendly Neighbor",
+        text:
+          "I really enjoyed my time here. Learned a ton, worked with amazing people, and advanced my skillset!",
+      },
+      {
+        id: 2,
+        name: "Bob Ross",
+        img: "bobross",
+        title: "Painter",
+        text:
+          "Quite the place! Leadership truly cares about its people, and they make a great effort to invest in your future.",
+      },
+      {
+        id: 3,
+        name: "Cookie Monster",
+        img: "cookiemonster",
+        title: "Trash Can Occupant",
+        text:
+          "Cookies cookies cookies! Nom nom nom nom nom! Need more cookies! Nom nom nom!",
+      },
+    ],
   },
   mutations: {
     setIsMobile(state) {
