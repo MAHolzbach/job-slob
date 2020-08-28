@@ -3,8 +3,9 @@ import VueRouter from "vue-router";
 
 import App from "./App.vue";
 import Search from "./components/Search.vue";
-import Applied from "./components/Applied.vue";
+import Recent from "./components/Recent.vue";
 import Saved from "./components/Saved.vue";
+import Applied from "./components/Applied.vue";
 import PostJob from "./components/PostJob.vue";
 import JobDetails from "./components/JobDetails.vue";
 
@@ -20,8 +21,9 @@ const router = new VueRouter({
   },
   routes: [
     { path: "/", component: Search },
-    { path: "/applied", component: Applied },
+    { path: "/recent", component: Recent },
     { path: "/saved", component: Saved },
+    { path: "/applied", component: Applied },
     { path: "/post", component: PostJob },
     { path: "/job/:id", name: "job", component: JobDetails, props: true },
   ],

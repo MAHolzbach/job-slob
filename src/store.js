@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
+import { uuidv4 } from "./utils";
 
 Vue.use(Vuex);
 
@@ -10,13 +11,13 @@ const store = new Vuex.Store({
     totalJobNumber: "153",
     recentSearches: [
       {
-        id: 1,
+        id: uuidv4(),
         what: "Javascript Developer",
         where: "United States",
-        howMany: 120,
+        howMany: 12,
       },
-      { id: 2, what: "Vue Developer", where: "Colorado", howMany: 9 },
-      { id: 3, what: "Reactjs", where: "United States", howMany: 82 },
+      { id: uuidv4(), what: "Vue", where: "", howMany: 9 },
+      { id: uuidv4(), what: "React", where: "United States", howMany: 10 },
     ],
     showSpinner: false,
     searchTerm: { description: "", location: "" },
@@ -101,6 +102,12 @@ const store = new Vuex.Store({
             description: payload.description,
             location: payload.location,
           };
+          this.commit("updateRecentSearches", {
+            id: uuidv4(),
+            what: payload.description,
+            where: payload.location,
+            howMany: res.data.length,
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -117,6 +124,17 @@ const store = new Vuex.Store({
       jobAlreadySaved
         ? (state.saved = state.saved.filter((saved) => saved.id !== payload.id))
         : (state.saved = [...state.saved, ...savedJob]);
+    },
+    updateRecentSearches(state, payload) {
+      const recentSearchExists =
+        state.recentSearches.filter((recent) => recent.id === payload.id)
+          .length > 0;
+
+      recentSearchExists
+        ? (state.recentSearches = state.recentSearches.filter(
+            (recent) => recent.id !== payload.id
+          ))
+        : (state.recentSearches = [...state.recentSearches, payload]);
     },
   },
 });

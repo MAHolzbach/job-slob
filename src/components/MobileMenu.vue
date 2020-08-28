@@ -34,12 +34,12 @@
             Home
           </p>
         </router-link>
-        <router-link class="py-2" to="/applied">
+        <router-link class="py-2" to="/recent">
           <p
             @click="handleClick"
             class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
           >
-            Applied
+            Recent Searches
           </p>
         </router-link>
         <router-link class="py-2" to="/saved">
@@ -48,6 +48,14 @@
             class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
           >
             Saved Jobs
+          </p>
+        </router-link>
+        <router-link class="py-2" to="/applied">
+          <p
+            @click="handleClick"
+            class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
+          >
+            Applied Jobs
           </p>
         </router-link>
         <router-link class="py-2" to="/post">

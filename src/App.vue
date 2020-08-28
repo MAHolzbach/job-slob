@@ -4,7 +4,7 @@
     class="flex flex-col justify-center items-center md:grid md:grid-cols-desktop font-appFont"
   >
     <Navbar />
-    <div class="pt-24 w-full">
+    <div class="pt-24 px-6 w-full">
       <router-view />
     </div>
     <Footer />
