@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6">
+  <div>
     <h1 class="text-lg font-semibold text-center mb-6">Saved Jobs</h1>
     <div
       v-for="job in saved"

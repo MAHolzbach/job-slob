@@ -42,7 +42,7 @@
         </button>
       </div>
     </form>
-    <Recent v-if="searchResults.length <= 0" :recentSearches="recentSearches" />
+    <Recent v-if="searchResults.length <= 0" />
     <div v-else>
       <SearchResults :searchResults="searchResults" />
     </div>
