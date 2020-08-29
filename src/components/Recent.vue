@@ -42,7 +42,6 @@
 </template>
 
 <script>
-//TODO: Error handling messages for both errors, and no jobs found.
 import trashIcon from "../assets/img/delete.png";
 import { mapState } from "vuex";
 
