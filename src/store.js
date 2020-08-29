@@ -84,6 +84,7 @@ const store = new Vuex.Store({
           "Cookies cookies cookies! Nom nom nom nom nom! Need more cookies! Nom nom nom!",
       },
     ],
+    error: { show: false, message: "" },
   },
   mutations: {
     setIsMobile(state) {
@@ -98,6 +99,18 @@ const store = new Vuex.Store({
       }
     },
     searchForJobs(state, payload) {
+      state.error = {
+        show: false,
+        message: "",
+      };
+      if (payload.description === "" && payload.location === "") {
+        state.showSpinner = false;
+        state.error = {
+          show: true,
+          message: "Please enter a job title and/or location.",
+        };
+        return;
+      }
       state.showSpinner = true;
       state.searchParams.description = payload.description;
       state.searchParams.location = payload.location;
@@ -117,6 +130,11 @@ const store = new Vuex.Store({
         })
         .catch((error) => {
           console.log(error);
+          state.searchResults = [];
+          state.error = {
+            show: true,
+            message: "No jobs found for that search. Please try again!",
+          };
           state.showSpinner = false;
         });
     },

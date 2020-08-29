@@ -10,7 +10,8 @@
     <Footer />
   </div>
 </template>
-
+//TODO: Make sure footer sticks to bottom.
+//TODO: Saved component: Enable ability to un-save jobs from saved view.
 <script>
   import Navbar from "./components/Navbar.vue";
   import Footer from "./components/Footer.vue";

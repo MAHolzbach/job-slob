@@ -6,13 +6,13 @@
       }}
       found for
       {{
-        searchParams.description
-          ? searchParams.description
-          : searchParams.location
+        localSearchParams.description
+          ? localSearchParams.description
+          : localSearchParams.location
       }}
       {{
-        searchParams.description && searchParams.location
-          ? "in " + searchParams.location
+        localSearchParams.description && localSearchParams.location
+          ? "in " + localSearchParams.location
           : ""
       }}
     </p>
@@ -43,19 +43,42 @@
 
 <script>
 import JobBox from "./JobBox.vue";
-import { mapState } from "vuex";
 
 export default {
   name: "SearchResults",
   components: {
     JobBox,
   },
+  data() {
+    return {
+      localSearchParams: { description: "", location: "" },
+    };
+  },
   props: {
     searchResults: {
       type: Array,
       default: () => [],
     },
+    description: {
+      type: String,
+      default: () => "",
+    },
+    location: {
+      type: String,
+      default: () => "",
+    },
   },
-  computed: mapState(["searchParams"]),
+  mounted() {
+    this.localSearchParams = {
+      description: this.$props.description,
+      location: this.$props.location,
+    };
+  },
+  beforeUpdate() {
+    this.localSearchParams = {
+      description: this.$props.description,
+      location: this.$props.location,
+    };
+  },
 };
 </script>
