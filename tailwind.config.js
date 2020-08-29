@@ -20,6 +20,7 @@ module.exports = {
         lightGray: "#eef0f1",
         midGray: "#bbc2ca",
         darkGray: "#46494a",
+        errorRed: "#FF4C4C",
       },
       gridTemplateColumns: {
         desktop: "minmax(250px, 25%) 1fr",

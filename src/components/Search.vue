@@ -44,9 +44,14 @@
         </button>
       </div>
     </form>
+    <Error v-if="error.show" />
     <Recent v-if="searchResults.length <= 0" />
     <div v-else>
-      <SearchResults :searchResults="searchResults" />
+      <SearchResults
+        :searchResults="searchResults"
+        :description="description"
+        :location="location"
+      />
     </div>
   </div>
 </template>
@@ -54,6 +59,7 @@
 <script>
 import Recent from "./Recent.vue";
 import SearchResults from "./SearchResults.vue";
+import Error from "./Error.vue";
 import { mapState } from "vuex";
 
 export default {
@@ -61,12 +67,14 @@ export default {
   components: {
     Recent,
     SearchResults,
+    Error,
   },
   computed: mapState({
     totalJobNumber: "totalJobNumber",
     recentSearches: "recentSearches",
     searchResults: "searchResults",
     showSpinner: "showSpinner",
+    error: "error",
     description: (state) => state.searchParams.description,
     location: (state) => state.searchParams.location,
   }),

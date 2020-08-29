@@ -1,6 +1,9 @@
 <template>
   <div>
     <h1 class="text-lg font-semibold text-center mb-6">Saved Jobs</h1>
+    <p v-if="saved.length === 0" class="text-xl font-semibold text-center mb-6">
+      No jobs saved yet!
+    </p>
     <div
       v-for="job in saved"
       :key="job.id"
