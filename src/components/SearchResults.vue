@@ -6,11 +6,13 @@
       }}
       found for
       {{
-        searchTerm.description ? searchTerm.description : searchTerm.location
+        searchParams.description
+          ? searchParams.description
+          : searchParams.location
       }}
       {{
-        searchTerm.description && searchTerm.location
-          ? "in " + searchTerm.location
+        searchParams.description && searchParams.location
+          ? "in " + searchParams.location
           : ""
       }}
     </p>
@@ -54,6 +56,6 @@ export default {
       default: () => [],
     },
   },
-  computed: mapState(["searchTerm"]),
+  computed: mapState(["searchParams"]),
 };
 </script>

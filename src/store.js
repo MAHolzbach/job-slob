@@ -20,7 +20,7 @@ const store = new Vuex.Store({
       { id: uuidv4(), what: "React", where: "United States", howMany: 10 },
     ],
     showSpinner: false,
-    searchTerm: { description: "", location: "" },
+    searchParams: { description: "", location: "" },
     searchResults: [],
     saved: [],
     applied: [
@@ -89,8 +89,18 @@ const store = new Vuex.Store({
     setIsMobile(state) {
       state.isMobile = window.innerWidth < 768;
     },
+    updateSearchParams(state, payload) {
+      if (payload.name === "what") {
+        state.searchParams.description = payload.value;
+      }
+      if (payload.name === "where") {
+        state.searchParams.location = payload.value;
+      }
+    },
     searchForJobs(state, payload) {
       state.showSpinner = true;
+      state.searchParams.description = payload.description;
+      state.searchParams.location = payload.location;
       axios
         .get(
           `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${payload.description}&location=${payload.location}&markdown=true`
@@ -98,10 +108,6 @@ const store = new Vuex.Store({
         .then((res) => {
           state.searchResults = res.data;
           state.showSpinner = false;
-          state.searchTerm = {
-            description: payload.description,
-            location: payload.location,
-          };
           this.commit("updateRecentSearches", {
             id: uuidv4(),
             what: payload.description,

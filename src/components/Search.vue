@@ -16,7 +16,8 @@
           type="text"
           name="what"
           placeholder="Job title, keyword, company"
-          v-model="description"
+          :value="description"
+          @input="updateSearchParams"
         />
       </div>
       <div class="mb-6">
@@ -28,7 +29,8 @@
           type="text"
           name="where"
           placeholder="city, state, zip, etc."
-          v-model="location"
+          :value="location"
+          @input="updateSearchParams"
         />
       </div>
       <div class="flex items-center justify-between">
@@ -60,19 +62,21 @@ export default {
     Recent,
     SearchResults,
   },
-  data() {
-    return {
-      description: "",
-      location: "",
-    };
-  },
-  computed: mapState([
-    "totalJobNumber",
-    "recentSearches",
-    "searchResults",
-    "showSpinner",
-  ]),
+  computed: mapState({
+    totalJobNumber: "totalJobNumber",
+    recentSearches: "recentSearches",
+    searchResults: "searchResults",
+    showSpinner: "showSpinner",
+    description: (state) => state.searchParams.description,
+    location: (state) => state.searchParams.location,
+  }),
   methods: {
+    updateSearchParams(e) {
+      this.$store.commit("updateSearchParams", {
+        name: e.target.name,
+        value: e.target.value,
+      });
+    },
     submitSearch(e) {
       e.preventDefault();
       this.$store.commit("searchForJobs", {
