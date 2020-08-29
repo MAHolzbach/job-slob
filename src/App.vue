@@ -1,7 +1,7 @@
 <template>
   <div
     id="app"
-    class="flex flex-col justify-center items-center md:grid md:grid-cols-desktop font-appFont"
+    class="flex flex-col justify-between h-screen items-center md:grid md:grid-cols-desktop font-appFont"
   >
     <Navbar />
     <div class="pt-24 px-6 w-full">
@@ -12,6 +12,7 @@
 </template>
 //TODO: Make sure footer sticks to bottom.
 //TODO: Saved component: Enable ability to un-save jobs from saved view.
+//TODO: Handle pagination.
 <script>
   import Navbar from "./components/Navbar.vue";
   import Footer from "./components/Footer.vue";
