@@ -99,6 +99,8 @@ const store = new Vuex.Store({
     },
     searchForJobs(state, payload) {
       state.showSpinner = true;
+      state.searchParams.description = payload.description;
+      state.searchParams.location = payload.location;
       axios
         .get(
           `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${payload.description}&location=${payload.location}&markdown=true`
