@@ -1,9 +1,9 @@
 <template>
-  <div class="flex">
+  <div class="flex justify-between w-full">
     <div class="min-w-1/4 w-16 mr-2">
       <img v-if="job.company_logo" :src="job.company_logo" alt="logo" />
     </div>
-    <div>
+    <div class="w-full">
       <div>
         <p class="font-medium">{{ job.title }}</p>
         <p class="text-sm">{{ job.company }}</p>
@@ -29,16 +29,49 @@
         </p>
       </div>
     </div>
+    <img
+      v-if="editing"
+      :src="trashIcon"
+      alt="delete"
+      @click="updateSaved"
+      class="h-6 w-6"
+    />
   </div>
 </template>
 
 <script>
+import trashIcon from "../assets/img/delete.png";
+
 export default {
   name: "JobBox",
   props: {
     job: {
       type: Object,
       default: () => {},
+    },
+    editing: {
+      type: Boolean,
+      default: () => false,
+    },
+  },
+  data() {
+    return {
+      trashIcon,
+    };
+  },
+  methods: {
+    updateSaved() {
+      this.$store.commit("updateSaved", {
+        id: this.job.id,
+        // name: this.name,
+        // title: this.title,
+        // company: this.company,
+        // location: this.location,
+        // logo: this.logo,
+        // description: this.description,
+        // apply: this.apply,
+        // companyUrl: this.companyUrl,
+      });
     },
   },
 };

@@ -10,9 +10,9 @@
     <Footer />
   </div>
 </template>
-//TODO: Make sure footer sticks to bottom.
-//TODO: Saved component: Enable ability to un-save jobs from saved view.
 //TODO: Handle pagination.
+//FIXME: Scroll behavior on navigation.
+//FIXME: Nav back to home if user refreshes on job details view.
 <script>
   import Navbar from "./components/Navbar.vue";
   import Footer from "./components/Footer.vue";

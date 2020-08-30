@@ -4,15 +4,17 @@
       v-if="recentSearches.length > 0"
       class="flex justify-between items-center w-full"
     >
-      <p class="font-medium">RECENT SEARCHES</p>
+      <p class="text-lg font-semibold">RECENT SEARCHES</p>
       <button
-        class="bg-lightGray hover:bg-midGray text-darkGray font-medium py-1 px-4 rounded-full focus:outline-none"
+        class="bg-lightGray hover:bg-midGray text-darkGray font-medium py-1 px-4 rounded-full focus:outline-none w-20"
         @click="setEditState"
       >
         {{ editing ? "Save" : "Edit" }}
       </button>
     </div>
-    <p v-else class="text-center font-medium mb-6">NO RECENT SEARCHES</p>
+    <p v-else class="text-xl font-semibold text-center mb-6">
+      NO RECENT SEARCHES
+    </p>
     <div
       v-for="search in recentSearches"
       :key="search.id"
