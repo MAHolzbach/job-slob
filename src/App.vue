@@ -11,8 +11,6 @@
   </div>
 </template>
 //TODO: Handle pagination.
-//FIXME: Scroll behavior on navigation.
-//FIXME: Nav back to home if user refreshes on job details view.
 <script>
   import Navbar from "./components/Navbar.vue";
   import Footer from "./components/Footer.vue";

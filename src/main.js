@@ -13,26 +13,12 @@ import store from "./store.js";
 
 Vue.use(VueRouter);
 
-const scrollBehavior = (to, from, savedPosition) => {
-  console.log("SCROLL");
-  if (savedPosition) {
-    console.log("IF");
-    return savedPosition;
-  } else {
-    console.log("ELSE");
-    return { x: 10, y: 10 };
-  }
-};
-
 const router = new VueRouter({
-  scrollBehavior,
   base: "/",
   mode: "history",
-  // /*eslint-disable */
-  // scrollBehavior(to, from, savedPosition) {
-  //   return { x: 0, y: 0 };
-  // },
-  // /*eslint-enable */
+  scrollBehavior() {
+    document.getElementById("app").scrollIntoView();
+  },
   routes: [
     { path: "/", component: Search },
     { path: "/recent", component: Recent },
