@@ -4,7 +4,10 @@
       <span class="text-mainBlue"> {{ searchResults.length }} </span>job{{
         searchResults.length >= 2 ? "s" : ""
       }}
-      found for
+      found
+      {{
+        localSearchParams.description || localSearchParams.location ? "for" : ""
+      }}
       {{
         localSearchParams.description
           ? localSearchParams.description

@@ -71,6 +71,8 @@ export default {
         this.$store.commit("searchForJobs", {
           description: searchToRun[0].what,
           location: searchToRun[0].where,
+          page: 0,
+          newSearch: true,
         });
         this.$router.push("/");
       }
