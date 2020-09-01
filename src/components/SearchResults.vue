@@ -19,8 +19,19 @@
           : ""
       }}
     </p>
+    <Paginate
+      v-if="this.$props.searchResults.length > 25"
+      :pageCount="numOfPages"
+      :prevText="'Prev'"
+      :nextText="'Next'"
+      :clickHandler="handlePageClick"
+      containerClass="flex w-full justify-between mb-4"
+      pageClass="text-mainBlue"
+      prevClass=""
+      nextClass=""
+    />
     <router-link
-      v-for="job in searchResults"
+      v-for="job in searchResultsToRender"
       :to="{
         name: 'job',
         params: {
@@ -46,15 +57,22 @@
 
 <script>
 import JobBox from "./JobBox.vue";
+import Paginate from "vuejs-paginate";
+import { mapState } from "vuex";
 
 export default {
   name: "SearchResults",
   components: {
     JobBox,
+    Paginate,
   },
+  computed: mapState({ numOfPages: "numOfPages" }),
   data() {
     return {
       localSearchParams: { description: "", location: "" },
+      searchResultsToRender: [],
+      renderStartIndex: 0,
+      renderEndIndex: 24,
     };
   },
   props: {
@@ -71,7 +89,29 @@ export default {
       default: () => "",
     },
   },
+  methods: {
+    handlePageClick(pageNum) {
+      this.renderStartIndex = pageNum * 25 - 25;
+      this.renderEndIndex = pageNum * 25 - 1;
+      this.setSearchResultsToRender();
+    },
+    setSearchResultsToRender() {
+      const newResultsToRenderArray = [];
+      for (
+        let index = this.renderStartIndex;
+        index <= this.renderEndIndex;
+        index++
+      ) {
+        const element = this.searchResults[index];
+        if (element !== undefined) {
+          newResultsToRenderArray.push(element);
+        }
+      }
+      this.searchResultsToRender = newResultsToRenderArray;
+    },
+  },
   mounted() {
+    this.setSearchResultsToRender();
     this.localSearchParams = {
       description: this.$props.description,
       location: this.$props.location,

@@ -22,6 +22,7 @@ const store = new Vuex.Store({
     showSpinner: false,
     searchParams: { description: "", location: "" },
     searchResults: [],
+    numOfPages: 0,
     saved: [],
     applied: [
       {
@@ -126,6 +127,7 @@ const store = new Vuex.Store({
             });
           } else {
             state.showSpinner = false;
+            state.numOfPages = Math.ceil(state.searchResults.length / 25);
             this.commit("updateRecentSearches", {
               id: uuidv4(),
               what: payload.description,
