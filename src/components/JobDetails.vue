@@ -102,6 +102,11 @@ export default {
       this.expanded = !this.expanded;
     },
   },
+  beforeMount() {
+    if (this.title === undefined) {
+      this.$router.push("/");
+    }
+  },
   mounted() {
     this.checkIfSaved();
   },

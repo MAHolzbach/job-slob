@@ -90,6 +90,8 @@ export default {
       this.$store.commit("searchForJobs", {
         description: this.description,
         location: this.location,
+        page: 0,
+        newSearch: true,
       });
     },
   },

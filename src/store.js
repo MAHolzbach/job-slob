@@ -99,34 +99,40 @@ const store = new Vuex.Store({
       }
     },
     searchForJobs(state, payload) {
+      let page = payload.page;
+      if (payload.newSearch === true) {
+        state.searchResults = [];
+        state.searchParams.description = payload.description;
+        state.searchParams.location = payload.location;
+        page = 0;
+      }
       state.error = {
         show: false,
         message: "",
       };
-      if (payload.description === "" && payload.location === "") {
-        state.showSpinner = false;
-        state.error = {
-          show: true,
-          message: "Please enter a job title and/or location.",
-        };
-        return;
-      }
       state.showSpinner = true;
-      state.searchParams.description = payload.description;
-      state.searchParams.location = payload.location;
       axios
         .get(
-          `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${payload.description}&location=${payload.location}&markdown=true`
+          `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${payload.description}&location=${payload.location}&markdown=true&page=${page}`
         )
         .then((res) => {
-          state.searchResults = res.data;
-          state.showSpinner = false;
-          this.commit("updateRecentSearches", {
-            id: uuidv4(),
-            what: payload.description,
-            where: payload.location,
-            howMany: res.data.length,
-          });
+          state.searchResults = [...state.searchResults, ...res.data];
+          if (res.data.length === 50) {
+            this.commit("searchForJobs", {
+              description: state.searchParams.description,
+              location: state.searchParams.location,
+              page: page + 1,
+              newSearch: false,
+            });
+          } else {
+            state.showSpinner = false;
+            this.commit("updateRecentSearches", {
+              id: uuidv4(),
+              what: payload.description,
+              where: payload.location,
+              howMany: res.data.length,
+            });
+          }
         })
         .catch((error) => {
           console.log(error);
