@@ -21,6 +21,7 @@ module.exports = {
         midGray: "#bbc2ca",
         darkGray: "#46494a",
         errorRed: "#FF4C4C",
+        successGreen: "#20CC82",
       },
       gridTemplateColumns: {
         desktop: "minmax(250px, 25%) 1fr",
