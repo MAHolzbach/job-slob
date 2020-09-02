@@ -25,11 +25,13 @@
       :prevText="'Prev'"
       :nextText="'Next'"
       :clickHandler="handlePageClick"
-      containerClass="flex w-full justify-between mb-4"
-      pageClass="text-mainBlue"
-      prevClass=""
-      nextClass=""
-      pageLinkClass="outline-none"
+      v-model="currentPageNum"
+      containerClass="flex w-full justify-between items-center mb-4"
+      pageClass="flex items-center mx-1 rounded text-mainBlue border border-mainBlue w-full text-center"
+      prevClass="text-mainBlue font-semibold outline-none border border-mainBlue rounded-l-full px-2 hover:bg-mainBlue hover:text-white"
+      nextClass="text-mainBlue font-semibold outline-none border border-mainBlue rounded-r-full px-2 hover:bg-mainBlue hover:text-white"
+      pageLinkClass="outline-none w-full text-center hover:bg-mainBlue hover:text-white"
+      activeClass="bg-mainBlue text-lightGray"
     />
     <router-link
       v-for="job in searchResultsToRender"
@@ -129,3 +131,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+// .active {
+//   background-color: $activeBlue;
+//   color: white;
+// }
+</style>
