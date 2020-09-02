@@ -63,14 +63,6 @@ export default {
     updateSaved() {
       this.$store.commit("updateSaved", {
         id: this.job.id,
-        // name: this.name,
-        // title: this.title,
-        // company: this.company,
-        // location: this.location,
-        // logo: this.logo,
-        // description: this.description,
-        // apply: this.apply,
-        // companyUrl: this.companyUrl,
       });
     },
   },

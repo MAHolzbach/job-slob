@@ -19,8 +19,22 @@
           : ""
       }}
     </p>
+    <Paginate
+      v-if="this.$props.searchResults.length > 25"
+      :pageCount="numOfPages"
+      :prevText="'Prev'"
+      :nextText="'Next'"
+      :clickHandler="handlePageClick"
+      v-model="currentPageNum"
+      containerClass="flex w-full justify-between items-center mb-4"
+      pageClass="flex items-center mx-1 rounded text-mainBlue border border-mainBlue w-full text-center"
+      prevClass="text-mainBlue font-semibold outline-none border border-mainBlue rounded-l-full px-2 hover:bg-mainBlue hover:text-white"
+      nextClass="text-mainBlue font-semibold outline-none border border-mainBlue rounded-r-full px-2 hover:bg-mainBlue hover:text-white"
+      pageLinkClass="outline-none w-full text-center hover:bg-mainBlue hover:text-white"
+      activeClass="bg-mainBlue text-lightGray"
+    />
     <router-link
-      v-for="job in searchResults"
+      v-for="job in searchResultsToRender"
       :to="{
         name: 'job',
         params: {
@@ -46,15 +60,22 @@
 
 <script>
 import JobBox from "./JobBox.vue";
+import Paginate from "vuejs-paginate";
+import { mapState } from "vuex";
 
 export default {
   name: "SearchResults",
   components: {
     JobBox,
+    Paginate,
   },
+  computed: mapState(["numOfPages", "currentPageNum"]),
   data() {
     return {
       localSearchParams: { description: "", location: "" },
+      searchResultsToRender: [],
+      renderStartIndex: 0,
+      renderEndIndex: 24,
     };
   },
   props: {
@@ -71,7 +92,32 @@ export default {
       default: () => "",
     },
   },
+  methods: {
+    handlePageClick(pageNum) {
+      this.renderStartIndex = pageNum * 25 - 25;
+      this.renderEndIndex = pageNum * 25 - 1;
+      this.$store.commit("setCurrentPageNum", { num: pageNum });
+      this.setSearchResultsToRender();
+    },
+    setSearchResultsToRender() {
+      const newResultsToRenderArray = [];
+      for (
+        let index = this.renderStartIndex;
+        index <= this.renderEndIndex;
+        index++
+      ) {
+        const element = this.searchResults[index];
+        if (element !== undefined) {
+          newResultsToRenderArray.push(element);
+        }
+      }
+      this.searchResultsToRender = newResultsToRenderArray;
+    },
+  },
   mounted() {
+    this.renderStartIndex = this.currentPageNum * 25 - 25;
+    this.renderEndIndex = this.currentPageNum * 25 - 1;
+    this.setSearchResultsToRender();
     this.localSearchParams = {
       description: this.$props.description,
       location: this.$props.location,
@@ -85,3 +131,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+// .active {
+//   background-color: $activeBlue;
+//   color: white;
+// }
+</style>
