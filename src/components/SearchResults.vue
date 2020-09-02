@@ -29,6 +29,7 @@
       pageClass="text-mainBlue"
       prevClass=""
       nextClass=""
+      pageLinkClass="outline-none"
     />
     <router-link
       v-for="job in searchResultsToRender"
@@ -66,7 +67,7 @@ export default {
     JobBox,
     Paginate,
   },
-  computed: mapState({ numOfPages: "numOfPages" }),
+  computed: mapState(["numOfPages", "currentPageNum"]),
   data() {
     return {
       localSearchParams: { description: "", location: "" },
@@ -93,6 +94,7 @@ export default {
     handlePageClick(pageNum) {
       this.renderStartIndex = pageNum * 25 - 25;
       this.renderEndIndex = pageNum * 25 - 1;
+      this.$store.commit("setCurrentPageNum", { num: pageNum });
       this.setSearchResultsToRender();
     },
     setSearchResultsToRender() {
@@ -111,6 +113,8 @@ export default {
     },
   },
   mounted() {
+    this.renderStartIndex = this.currentPageNum * 25 - 25;
+    this.renderEndIndex = this.currentPageNum * 25 - 1;
     this.setSearchResultsToRender();
     this.localSearchParams = {
       description: this.$props.description,
