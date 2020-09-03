@@ -113,6 +113,7 @@ const store = new Vuex.Store({
         message: "",
       };
       state.showSpinner = true;
+      state.currentPageNum = 1;
       axios
         .get(
           `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${payload.description}&location=${payload.location}&markdown=true&page=${page}`
