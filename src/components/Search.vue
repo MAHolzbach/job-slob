@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full max-w-xs my-0 mx-auto">
+  <div class="w-full max-w-xs my-0 mx-auto md:max-w-full">
     <p class="pb-6 text-center">
       <span class="text-mainBlue">{{ totalJobNumber }}</span> jobs available
     </p>

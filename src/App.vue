@@ -1,14 +1,18 @@
 <template>
+<div id="app" class="font-appFont">
   <div
-    id="app"
-    class="flex flex-col justify-between h-screen items-center md:grid md:grid-cols-desktop font-appFont"
+    class="flex flex-col justify-between w-full items-center md:flex-row"
   >
     <Navbar />
-    <div class="pt-24 px-6 w-full">
+    <div class="pt-24 px-6 w-full md:pb-20 md:flex md:justify-center md:w-full md:flex-1  md:ml-290 ">
       <router-view />
     </div>
-    <Footer />
+    <div class="hidden md:block md:flex-initial">
+      JOB DETAILS
+    </div>
   </div>
+  <Footer />
+</div>
 </template>
 
 <script>
