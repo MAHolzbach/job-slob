@@ -33,28 +33,30 @@
       pageLinkClass="outline-none w-full text-center hover:bg-mainBlue hover:text-white"
       activeClass="bg-mainBlue text-lightGray"
     />
-    <router-link
-      v-for="job in searchResultsToRender"
-      :to="{
-        name: 'job',
-        params: {
-          id: job.id,
-          title: job.title,
-          company: job.company,
-          location: job.location,
-          logo: job.company_logo,
-          description: job.description,
-          apply: job.how_to_apply,
-          companyUrl: job.company_url,
-          howToApply: job.how_to_apply,
-          type: job.type,
-        },
-      }"
-      :key="job.id"
-      class="border-2 border-lightGray rounded-lg shadow-sm flex p-2 mb-4 hover:shadow-lg hover:border-mainBlue cursor-pointer"
-    >
-      <JobBox :job="job" />
-    </router-link>
+    <div>
+      <router-link
+        v-for="job in searchResultsToRender"
+        :to="{
+          name: 'job',
+          params: {
+            id: job.id,
+            title: job.title,
+            company: job.company,
+            location: job.location,
+            logo: job.company_logo,
+            description: job.description,
+            apply: job.how_to_apply,
+            companyUrl: job.company_url,
+            howToApply: job.how_to_apply,
+            type: job.type,
+          },
+        }"
+        :key="job.id"
+        class="border-2 border-lightGray rounded-lg shadow-sm flex p-2 mb-4 hover:shadow-lg hover:border-mainBlue cursor-pointer"
+      >
+        <JobBox :job="job" />
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -69,7 +71,7 @@ export default {
     JobBox,
     Paginate,
   },
-  computed: mapState(["numOfPages", "currentPageNum"]),
+  computed: mapState(["numOfPages", "currentPageNum", "isMobile"]),
   data() {
     return {
       localSearchParams: { description: "", location: "" },

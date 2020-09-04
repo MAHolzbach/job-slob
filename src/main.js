@@ -26,6 +26,12 @@ const router = new VueRouter({
     { path: "/applied", component: Applied },
     { path: "/post", component: PostJob },
     { path: "/job/:id", name: "job", component: JobDetails, props: true },
+    {
+      path: "/desktopJob/:id",
+      name: "desktopJobDetails",
+      component: JobDetails,
+      props: true,
+    },
   ],
 });
 

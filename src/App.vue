@@ -4,11 +4,8 @@
     class="flex flex-col justify-between w-full items-center md:flex-row"
   >
     <Navbar />
-    <div class="pt-24 px-6 w-full md:pb-20 md:flex md:justify-center md:w-full md:flex-1  md:ml-290 ">
+    <div class="pt-24 px-6 w-full md:pb-20 md:flex md:justify-center md:w-8/12  md:ml-290">
       <router-view />
-    </div>
-    <div class="hidden md:block md:flex-initial">
-      JOB DETAILS
     </div>
   </div>
   <Footer />
@@ -18,6 +15,7 @@
 <script>
   import Navbar from "./components/Navbar.vue";
   import Footer from "./components/Footer.vue";
+  import { mapState } from "vuex";
 
   export default {
     name: "App",
@@ -35,6 +33,7 @@
     destroyed() {
       window.removeEventListener("resize", this.setIsMobile);
     },
+    computed: mapState(["isMobile"]),
     methods: {
       setIsMobile() {
         this.$store.commit("setIsMobile");
