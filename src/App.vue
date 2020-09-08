@@ -7,6 +7,7 @@
     <div class="pt-24 px-6 w-full md:pb-20 md:flex md:justify-center md:w-8/12  md:ml-290">
       <router-view />
     </div>
+    <JobDetails v-if="!isMobile" job="currentJobView"/>
   </div>
   <Footer />
 </div>
@@ -14,6 +15,7 @@
 
 <script>
   import Navbar from "./components/Navbar.vue";
+  import JobDetails from "./components/JobDetails"
   import Footer from "./components/Footer.vue";
   import { mapState } from "vuex";
 
@@ -21,6 +23,7 @@
     name: "App",
     components: {
       Navbar,
+      JobDetails,
       Footer,
     },
     created() {
@@ -33,7 +36,7 @@
     destroyed() {
       window.removeEventListener("resize", this.setIsMobile);
     },
-    computed: mapState(["isMobile"]),
+    computed: mapState(["isMobile", "currentJobView"]),
     methods: {
       setIsMobile() {
         this.$store.commit("setIsMobile");

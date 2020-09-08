@@ -33,11 +33,11 @@
       pageLinkClass="outline-none w-full text-center hover:bg-mainBlue hover:text-white"
       activeClass="bg-mainBlue text-lightGray"
     />
-    <div>
+    <div v-if="isMobile">
       <router-link
         v-for="job in searchResultsToRender"
         :to="{
-          name: 'job',
+          name: routerName,
           params: {
             id: job.id,
             title: job.title,
@@ -56,6 +56,16 @@
       >
         <JobBox :job="job" />
       </router-link>
+    </div>
+    <div
+      v-else
+      v-for="job in searchResultsToRender"
+      :key="job.id"
+      :id="job.id"
+      class="border-2 border-lightGray rounded-lg shadow-sm flex p-2 mb-4 hover:shadow-lg hover:border-mainBlue cursor-pointer"
+      @click="setCurrentJobView(job.id)"
+    >
+      <JobBox :job="job" />
     </div>
   </div>
 </template>
@@ -78,6 +88,7 @@ export default {
       searchResultsToRender: [],
       renderStartIndex: 0,
       renderEndIndex: 24,
+      routerName: window.innerWidth < 768 ? "job" : "",
     };
   },
   props: {
@@ -115,6 +126,9 @@ export default {
       }
       this.searchResultsToRender = newResultsToRenderArray;
     },
+    setCurrentJobView(id) {
+      this.$store.commit("setCurrentJobView", { id });
+    },
   },
   mounted() {
     this.renderStartIndex = this.currentPageNum * 25 - 25;
@@ -133,10 +147,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-// .active {
-//   background-color: $activeBlue;
-//   color: white;
-// }
-</style>

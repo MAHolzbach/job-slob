@@ -87,6 +87,7 @@ const store = new Vuex.Store({
       },
     ],
     error: { show: false, message: "" },
+    currentJobView: {},
   },
   mutations: {
     setIsMobile(state) {
@@ -172,6 +173,12 @@ const store = new Vuex.Store({
     },
     setCurrentPageNum(state, payload) {
       state.currentPageNum = payload.num;
+    },
+    setCurrentJobView(state, payload) {
+      const selectedJob = state.searchResults.filter(
+        (result) => result.id === payload.id
+      );
+      state.currentJobView = selectedJob;
     },
   },
 });
