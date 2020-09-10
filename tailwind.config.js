@@ -39,6 +39,10 @@ module.exports = {
       },
       margin: {
         290: "290px",
+        496: "496px",
+      },
+      maxWidth: {
+        detailsMax: "490px",
       },
     },
     fontFamily: {

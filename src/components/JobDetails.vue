@@ -22,7 +22,9 @@
       <p class="text-lg font-semibold">Description</p>
       <VueMarkdown
         :class="[expanded ? 'h-auto' : 'h-descriptionText', 'overflow-hidden']"
-      >{{ job.description }}</VueMarkdown>
+        :source="job.description"
+        watches="['job.description']"
+      ></VueMarkdown>
       <p
         class="text-mainBlue font-semibold mt-2 cursor-pointer w-auto inline-block"
         @click="expandDescription"
@@ -31,7 +33,7 @@
     <hr class="my-4 w-full border" />
     <div>
       <p class="text-lg font-semibold">How To Apply</p>
-      <VueMarkdown>{{ job.how_to_apply }}</VueMarkdown>
+      <VueMarkdown :source="job.how_to_apply" watches="['job.how_to_apply']"></VueMarkdown>
     </div>
     <hr class="my-4 w-full border" />
     <Reviews />
@@ -85,7 +87,6 @@
       }
     },
     mounted() {
-      console.log(this.$props.job[0]);
       this.checkIfSaved();
     },
   };
