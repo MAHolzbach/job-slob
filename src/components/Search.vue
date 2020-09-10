@@ -1,13 +1,13 @@
 <template>
-  <div class="w-full max-w-xs my-0 mx-auto">
+  <div class="w-full max-w-xs my-0 mx-auto md:max-w-full">
     <p class="pb-6 text-center">
       <span class="text-mainBlue">{{ totalJobNumber }}</span> jobs available
     </p>
     <form
-      class="shadow-lg rounded-lg px-8 pt-6 pb-8 mb-6 border"
+      class="shadow-lg rounded-lg px-8 pt-6 pb-8 mb-6 border md:flex md:items-center md:jutify-between"
       @submit="submitSearch"
     >
-      <div class="mb-4">
+      <div class="mb-4 md:flex-1 md:mr-4">
         <label class="block text-darkGray text-lg mb-2 pl-1" for="what"
           >What</label
         >
@@ -20,7 +20,7 @@
           @input="updateSearchParams"
         />
       </div>
-      <div class="mb-6">
+      <div class="mb-6 md:flex-1 md:mr-4 md:mb-4">
         <label class="block text-darkGray text-lg mb-2 pl-1" for="where"
           >Where</label
         >
@@ -33,9 +33,9 @@
           @input="updateSearchParams"
         />
       </div>
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between md:w-32 md:pt-4">
         <button
-          class="bg-mainBlue hover:bg-blue-700 text-lightGray py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full min-h-40"
+          class="bg-mainBlue hover:bg-blue-700 text-lightGray py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full h-10"
           type="submit"
           @click="submitSearch"
         >
@@ -114,6 +114,7 @@ export default {
   width: 20px;
   height: 20px;
   margin-top: -10px;
+  margin-left: -5px;
   border-radius: 50%;
   border-top: 2px solid white;
   border-right: 2px solid transparent;

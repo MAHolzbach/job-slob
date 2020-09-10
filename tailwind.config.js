@@ -24,7 +24,7 @@ module.exports = {
         successGreen: "#20CC82",
       },
       gridTemplateColumns: {
-        desktop: "minmax(250px, 25%) 1fr",
+        desktop: "minmax(250px, 25%) 1fr minmax(250px, 25%)",
       },
       transformOrigin: {
         hamburderSpan: "4px 0px",
@@ -36,6 +36,13 @@ module.exports = {
       },
       height: {
         descriptionText: "16.5rem",
+      },
+      margin: {
+        290: "290px",
+        496: "496px",
+      },
+      maxWidth: {
+        detailsMax: "490px",
       },
     },
     fontFamily: {
