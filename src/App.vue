@@ -1,21 +1,19 @@
 <template>
-<div id="app" class="font-appFont">
-  <div
-    class="flex flex-col justify-between w-full items-center md:flex-row"
-  >
-    <Navbar />
-    <div class="pt-24 px-6 w-full md:pb-20 md:flex md:justify-center md:w-8/12  md:ml-290">
-      <router-view />
+  <div id="app" class="font-appFont">
+    <div class="flex flex-col justify-between w-full items-center md:flex-row">
+      <Navbar />
+      <div class="pt-24 px-6 w-full md:pb-20 md:flex md:justify-center md:w-8/12 md:ml-290">
+        <router-view />
+      </div>
+      <JobDetails v-if="!isMobile" :job="currentJobView" />
     </div>
-    <JobDetails v-if="!isMobile" job="currentJobView"/>
+    <Footer />
   </div>
-  <Footer />
-</div>
 </template>
 
 <script>
   import Navbar from "./components/Navbar.vue";
-  import JobDetails from "./components/JobDetails"
+  import JobDetails from "./components/JobDetails";
   import Footer from "./components/Footer.vue";
   import { mapState } from "vuex";
 
