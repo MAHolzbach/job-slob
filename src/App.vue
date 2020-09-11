@@ -1,25 +1,25 @@
 <template>
-  <div id="app" class="font-appFont">
+  <div id="app" class="font-appFont flex flex-col h-full md:pt-6">
     <div class="flex flex-col justify-between w-full items-center md:flex-row md:items-start">
       <Navbar />
       <div
-        class="pt-24 px-6 w-full md:pt-6 md:pb-20 md:flex md:justify-center md:w-8/12 md:ml-290 md:mr-496"
+        class="pt-24 px-6 w-full md:px-2 md:pt-6 md:pb-20 md:flex md:justify-center md:w-8/12 md:ml-290 md:mr-496"
       >
         <router-view />
       </div>
       <div
         v-if="!isMobile"
-        class="fixed overflow-scroll h-full right-0 w-4/12 max-w-detailsMax pr-2"
+        class="fixed overflow-x-hidden h-desktopDetails right-0 w-4/12 max-w-detailsMax pr-2 job-details__wrapper"
       >
-        <JobDetails :job="currentJobView[0]" />
+        <JobDetails v-if="currentJobView[0]" :job="currentJobView[0]" />
       </div>
     </div>
     <Footer />
   </div>
 </template>
-//TODO: Fix rendering of search and job details when switching between mobile and desktop.
-//TODO: Hide jobDetails on desktop when navigating away from homepage.
 //TODO: Style desktop navbar.
+//TODO: Set fixed size for desktop jobBox logos.
+//TODO: Keep posted date in jobBox at bottom of element.
 <script>
   import Navbar from "./components/Navbar.vue";
   import JobDetails from "./components/JobDetails";
@@ -51,5 +51,18 @@
     },
   };
 </script>
+
+<style lang="scss">
+.job-details__wrapper {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+</style>
+
 
 <style src="./assets/tailwind.css">
