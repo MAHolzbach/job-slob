@@ -2,16 +2,13 @@
   <div>
     <div class="m-10 flex flex-col">
       <router-link class="py-2" to="/">
-        <p
-          @click="handleClick"
-          class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
-        >
+        <p class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue">
           Home
         </p>
       </router-link>
       <router-link class="py-2" to="/recent">
         <p
-          @click="handleClick"
+          @click="setCurrentJobView()"
           class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
         >
           Recent Searches
@@ -19,7 +16,7 @@
       </router-link>
       <router-link class="py-2" to="/saved">
         <p
-          @click="handleClick"
+          @click="setCurrentJobView()"
           class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
         >
           Saved Jobs
@@ -27,7 +24,7 @@
       </router-link>
       <router-link class="py-2" to="/applied">
         <p
-          @click="handleClick"
+          @click="setCurrentJobView()"
           class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
         >
           Applied Jobs
@@ -35,7 +32,7 @@
       </router-link>
       <router-link class="py-2" to="/post">
         <p
-          @click="handleClick"
+          @click="setCurrentJobView()"
           class="text-2xl py-3 border-b-2 border-darkGray hover:text-mainBlue"
         >
           Post Job
@@ -48,5 +45,10 @@
 <script>
 export default {
   name: "DesktopMenu",
+  methods: {
+    setCurrentJobView() {
+      this.$store.commit("setCurrentJobView", { id: null });
+    },
+  },
 };
 </script>

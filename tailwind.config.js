@@ -36,6 +36,7 @@ module.exports = {
       },
       height: {
         descriptionText: "16.5rem",
+        desktopDetails: "92%",
       },
       margin: {
         290: "290px",

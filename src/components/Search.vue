@@ -1,49 +1,55 @@
 <template>
   <div class="w-full max-w-xs my-0 mx-auto md:max-w-full">
-    <p class="pb-6 text-center">
-      <span class="text-mainBlue">{{ totalJobNumber }}</span> jobs available
-    </p>
-    <form
-      class="shadow-lg rounded-lg px-8 pt-6 pb-8 mb-6 border md:flex md:items-center md:jutify-between"
-      @submit="submitSearch"
-    >
-      <div class="mb-4 md:flex-1 md:mr-4">
-        <label class="block text-darkGray text-lg mb-2 pl-1" for="what"
-          >What</label
-        >
-        <input
-          class="border-2 border-midGray-300 bg-white h-10 px-5 w-full rounded-lg text-md text-darkGray focus:outline-none"
-          type="text"
-          name="what"
-          placeholder="Job title, keyword, company"
-          :value="description"
-          @input="updateSearchParams"
-        />
-      </div>
-      <div class="mb-6 md:flex-1 md:mr-4 md:mb-4">
-        <label class="block text-darkGray text-lg mb-2 pl-1" for="where"
-          >Where</label
-        >
-        <input
-          class="border-2 border-midGray-300 bg-white h-10 px-5 w-full rounded-lg text-md text-gray-800 focus:outline-none"
-          type="text"
-          name="where"
-          placeholder="city, state, zip, etc."
-          :value="location"
-          @input="updateSearchParams"
-        />
-      </div>
-      <div class="flex items-center justify-between md:w-32 md:pt-4">
-        <button
-          class="bg-mainBlue hover:bg-blue-700 text-lightGray py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full h-10"
-          type="submit"
-          @click="submitSearch"
-        >
-          <span v-if="showSpinner" class="spinner relative"></span>
-          <p v-else>Search</p>
-        </button>
-      </div>
-    </form>
+    <div class="md:bg-cover search-form__wrapper">
+      <p class="pb-6 text-center md:font-semibold">
+        <span class="text-mainBlue">{{ totalJobNumber }}</span> jobs available
+      </p>
+      <form
+        class="shadow-lg rounded-lg px-8 pt-6 pb-8 mb-6 border md:flex md:items-center md:jutify-between md:rounded-t-none search-form"
+        @submit="submitSearch"
+      >
+        <div class="mb-4 md:flex-1 md:mr-4">
+          <label
+            class="block text-black-900 text-lg mb-2 pl-1 font-semibold"
+            for="what"
+            >What</label
+          >
+          <input
+            class="border-2 border-midGray-300 bg-white h-10 px-5 w-full rounded-lg text-md text-darkGray focus:outline-none"
+            type="text"
+            name="what"
+            placeholder="Job title, keyword, company"
+            :value="description"
+            @input="updateSearchParams"
+          />
+        </div>
+        <div class="mb-6 md:flex-1 md:mr-4 md:mb-4">
+          <label
+            class="block text-black-900 font-semibold text-lg mb-2 pl-1"
+            for="where"
+            >Where</label
+          >
+          <input
+            class="border-2 border-midGray-300 bg-white h-10 px-5 w-full rounded-lg text-md text-gray-800 focus:outline-none"
+            type="text"
+            name="where"
+            placeholder="city, state, zip, etc."
+            :value="location"
+            @input="updateSearchParams"
+          />
+        </div>
+        <div class="flex items-center justify-between md:w-32 md:pt-4">
+          <button
+            class="bg-mainBlue hover:bg-blue-700 text-lightGray py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full h-10"
+            type="submit"
+            @click="submitSearch"
+          >
+            <span v-if="showSpinner" class="spinner relative"></span>
+            <p v-else>Search</p>
+          </button>
+        </div>
+      </form>
+    </div>
     <Error v-if="error.show" />
     <Recent v-if="searchResults.length <= 0" />
     <div v-else>
@@ -98,7 +104,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @keyframes spinner {
   to {
     transform: rotate(360deg);
@@ -119,5 +125,18 @@ export default {
   border-top: 2px solid white;
   border-right: 2px solid transparent;
   animation: spinner 0.6s linear infinite;
+}
+
+.search-form__wrapper {
+  @media (min-width: 768px) {
+    background-image: url("../assets/img/skyline.jpg");
+    background-position: center;
+  }
+}
+
+.search-form {
+  @media (min-width: 768px) {
+    border-top: none;
+  }
 }
 </style>
