@@ -25,7 +25,7 @@
       :nextText="'Next'"
       :clickHandler="handlePageClick"
       v-model="currentPageNum"
-      containerClass="flex w-full justify-between items-center mb-4"
+      containerClass="w-full max-w-md flex justify-between items-center mb-4 mx-auto"
       pageClass="flex items-center mx-1 rounded text-mainBlue border border-mainBlue w-full text-center"
       prevClass="text-mainBlue font-semibold border border-mainBlue rounded-l-full px-2 hover:bg-mainBlue hover:text-white"
       prevLinkClass="outline-none"

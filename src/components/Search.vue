@@ -2,7 +2,7 @@
   <div class="w-full max-w-xs my-0 mx-auto md:max-w-full">
     <div class="md:bg-cover search-form__wrapper">
       <p class="pb-6 text-center md:font-semibold">
-        <span class="text-mainBlue">{{ totalJobNumber }}</span> jobs available
+        Search the GitHub Jobs database for the next step in your career!
       </p>
       <form
         class="shadow-lg rounded-lg px-8 pt-6 pb-8 mb-6 border md:flex md:items-center md:jutify-between md:rounded-t-none search-form"
@@ -76,7 +76,6 @@ export default {
     Error,
   },
   computed: mapState({
-    totalJobNumber: "totalJobNumber",
     recentSearches: "recentSearches",
     searchResults: "searchResults",
     showSpinner: "showSpinner",

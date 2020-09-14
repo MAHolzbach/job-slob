@@ -17,9 +17,7 @@
     <Footer />
   </div>
 </template>
-//TODO: Style desktop navbar.
-//TODO: Set fixed size for desktop jobBox logos.
-//TODO: Keep posted date in jobBox at bottom of element.
+//TODO: Desktop styles for other sections.
 <script>
   import Navbar from "./components/Navbar.vue";
   import JobDetails from "./components/JobDetails";
