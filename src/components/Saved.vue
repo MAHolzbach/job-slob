@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="md:w-full">
     <div
       v-if="saved.length > 0"
       class="flex justify-between items-center w-full mb-6"

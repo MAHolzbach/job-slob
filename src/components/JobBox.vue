@@ -1,7 +1,12 @@
 <template>
   <div class="flex justify-between w-full">
-    <div class="min-w-1/4 w-16 mr-2">
-      <img v-if="job.company_logo" :src="job.company_logo" alt="logo" />
+    <div class="min-w-1/4 w-16 mr-2 mt-1">
+      <img
+        v-if="job.company_logo"
+        :src="job.company_logo"
+        alt="logo"
+        class="md:w-32"
+      />
     </div>
     <div class="w-full">
       <div>

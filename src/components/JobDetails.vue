@@ -99,5 +99,9 @@ export default {
   mounted() {
     this.checkIfSaved();
   },
+  beforeUpdate() {
+    this.isSaved = false;
+    this.checkIfSaved();
+  },
 };
 </script>

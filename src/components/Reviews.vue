@@ -3,13 +3,12 @@
     <div class="flex justify-between mb-4">
       <p class="text-lg font-semibold">Worker Reviews</p>
       <div class="flex items-center">
-        <img class="w-5 h-5" :src="leftChevron" alt="left" id="leftArrow" />
-        <img
-          class="w-5 h-5 ml-2"
-          :src="rightChevron"
-          alt="right"
-          id="rightArrow"
-        />
+        <div class="w-10 cursor-pointer" id="leftArrow">
+          <img class="w-5 h-5 mr-4" :src="leftChevron" alt="left" />
+        </div>
+        <div class="w-10 cursor-pointer" id="rightArrow">
+          <img class="w-5 h-5 float-right" :src="rightChevron" alt="right" />
+        </div>
       </div>
     </div>
     <div class="flex min-w-full flex-1">
