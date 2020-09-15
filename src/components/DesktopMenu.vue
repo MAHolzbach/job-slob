@@ -25,6 +25,7 @@
     <router-link
       class="py-2 flex items-center text-lg hover:text-mainBlue "
       to="/recent"
+      @click.native="setCurrentJobView()"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -40,13 +41,14 @@
           d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
         />
       </svg>
-      <p @click="setCurrentJobView()" class="">
+      <p class="">
         Recent Searches
       </p>
     </router-link>
     <router-link
       class="py-2 flex items-center text-lg hover:text-mainBlue "
       to="/saved"
+      @click.native="setCurrentJobView()"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -62,13 +64,14 @@
           d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
         />
       </svg>
-      <p @click="setCurrentJobView()" class="">
+      <p class="">
         Saved Jobs
       </p>
     </router-link>
     <router-link
       class="py-2 flex items-center text-lg hover:text-mainBlue "
       to="/applied"
+      @click.native="setCurrentJobView()"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -84,13 +87,14 @@
           d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
         />
       </svg>
-      <p @click="setCurrentJobView()" class="">
+      <p class="">
         Applied Jobs
       </p>
     </router-link>
     <router-link
       class="py-2 flex items-center text-lg hover:text-mainBlue "
       to="/post"
+      @click.native="setCurrentJobView()"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +110,7 @@
           d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
         />
       </svg>
-      <p @click="setCurrentJobView()" class="">
+      <p class="">
         Post Job
       </p>
     </router-link>

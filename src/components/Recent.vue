@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="md:w-full">
     <div
       v-if="recentSearches.length > 0"
       class="flex justify-between items-center w-full"

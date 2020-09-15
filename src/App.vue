@@ -17,7 +17,8 @@
     <Footer />
   </div>
 </template>
-//TODO: Desktop styles for other sections.
+//TODO: Handle responsiveness on changing browser size/tablet view, etc.
+//TODO: Show job details on saved jobs view upon clicking a saved job.
 <script>
   import Navbar from "./components/Navbar.vue";
   import JobDetails from "./components/JobDetails";
