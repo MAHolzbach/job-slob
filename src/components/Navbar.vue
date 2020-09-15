@@ -1,9 +1,9 @@
 <template>
   <div
-    class="py-4 bg-white flex justify-between items-start w-full px-4 fixed top-0 z-10 md:flex-col md:w-auto md:fixed md:h-full md:justify-start md:items-center"
+    class="py-4 bg-white flex justify-between items-start w-full px-4 fixed top-0 z-10 lg:flex-col lg:w-auto lg:fixed lg:h-full lg:justify-start lg:items-center"
   >
     <Logo :companyName="companyName" />
-    <p class="md:hidden font-logoFont m-1 mr-4 md:m-4 text-2xl">JobSlob</p>
+    <p class="lg:hidden font-logoFont m-1 mr-4 lg:m-4 text-2xl">JobSlob</p>
     <MobileMenu v-if="isMobile" />
     <DesktopMenu v-else />
   </div>

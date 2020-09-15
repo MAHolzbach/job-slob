@@ -1,14 +1,14 @@
 <template>
-  <div class="w-full max-w-xs my-0 mx-auto md:max-w-full">
-    <div class="md:bg-cover search-form__wrapper">
-      <p class="pb-6 text-center md:font-semibold">
+  <div class="w-full my-0 mx-auto lg:max-w-full">
+    <div class="lg:bg-cover search-form__wrapper">
+      <p class="pb-6 text-center lg:font-semibold">
         Search the GitHub Jobs database for the next step in your career!
       </p>
       <form
-        class="shadow-lg rounded-lg px-8 pt-6 pb-8 mb-6 border md:flex md:items-center md:jutify-between md:rounded-t-none search-form"
+        class="shadow-lg rounded-lg px-8 pt-6 pb-8 mb-6 border lg:flex lg:items-center lg:jutify-between lg:rounded-t-none search-form"
         @submit="submitSearch"
       >
-        <div class="mb-4 md:flex-1 md:mr-4">
+        <div class="mb-4 lg:flex-1 lg:mr-4">
           <label
             class="block text-black-900 text-lg mb-2 pl-1 font-semibold"
             for="what"
@@ -23,7 +23,7 @@
             @input="updateSearchParams"
           />
         </div>
-        <div class="mb-6 md:flex-1 md:mr-4 md:mb-4">
+        <div class="mb-6 lg:flex-1 lg:mr-4 lg:mb-4">
           <label
             class="block text-black-900 font-semibold text-lg mb-2 pl-1"
             for="where"
@@ -38,7 +38,7 @@
             @input="updateSearchParams"
           />
         </div>
-        <div class="flex items-center justify-between md:w-32 md:pt-4">
+        <div class="flex items-center justify-between lg:w-32 lg:pt-4">
           <button
             class="bg-mainBlue hover:bg-blue-700 text-lightGray py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full h-10"
             type="submit"

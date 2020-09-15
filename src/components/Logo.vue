@@ -3,11 +3,11 @@
     to="/"
     class="flex flex-col justify-center items-center font-logoFont"
   >
-    <p class="hidden md:inline m-1 md:m-4 text-2xl md:text-4xl">
+    <p class="hidden lg:inline m-1 lg:m-4 text-2xl lg:text-4xl">
       {{ companyName }}
     </p>
     <img :src="logo" alt="logo" class="w-20 lg:w-40" />
-    <h2 class="hidden md:inline md:text-center md:text-2xl">
+    <h2 class="hidden lg:inline lg:text-center lg:text-2xl">
       Git a Job
     </h2>
   </router-link>

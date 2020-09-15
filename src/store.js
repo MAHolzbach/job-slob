@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    isMobile: window.innerWidth < 768,
+    isMobile: window.innerWidth < 1024,
     recentSearches: [
       {
         id: uuidv4(),
