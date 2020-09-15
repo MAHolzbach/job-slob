@@ -1,5 +1,5 @@
 <template>
-  <div class="md:w-full">
+  <div class="lg:w-full">
     <h1 class="text-lg font-semibold text-center mb-6">Jobs Applied To</h1>
     <div
       v-for="job in applied"

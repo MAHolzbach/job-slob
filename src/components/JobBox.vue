@@ -5,7 +5,7 @@
         v-if="job.company_logo"
         :src="job.company_logo"
         alt="logo"
-        class="md:w-32"
+        class="lg:w-32"
       />
     </div>
     <div class="w-full">

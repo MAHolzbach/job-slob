@@ -1,9 +1,9 @@
 <template>
-  <div id="app" class="font-appFont flex flex-col h-full md:pt-6">
-    <div class="flex flex-col justify-between w-full items-center md:flex-row md:items-start">
+  <div id="app" class="font-appFont flex flex-col h-full lg:pt-6">
+    <div class="flex flex-col justify-between w-full items-center lg:flex-row lg:items-start">
       <Navbar />
       <div
-        class="pt-24 px-6 w-full md:px-2 md:pt-6 md:pb-20 md:flex md:justify-center md:w-8/12 md:ml-290 md:mr-496"
+        class="pt-24 px-6 w-full lg:px-2 lg:pt-6 lg:pb-20 lg:flex lg:justify-center lg:w-8/12 lg:ml-290 lg:mr-496"
       >
         <router-view />
       </div>
@@ -17,8 +17,10 @@
     <Footer />
   </div>
 </template>
-//TODO: Handle responsiveness on changing browser size/tablet view, etc.
 //TODO: Show job details on saved jobs view upon clicking a saved job.
+//TODO: Search form and desktop menu need work in space from small desktop to tablet.
+//TODO: Tablet JobDetails needs more bottom padding.
+//TODO: Tablet navbar --> larger logo and site title.
 <script>
   import Navbar from "./components/Navbar.vue";
   import JobDetails from "./components/JobDetails";

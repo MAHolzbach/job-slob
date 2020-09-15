@@ -1,5 +1,5 @@
 <template>
-  <div class="md:w-full">
+  <div class="lg:w-full">
     <p class="text-lg font-semibold text-center mb-4">
       SUBMIT A JOB TO OUR BOARD
     </p>
