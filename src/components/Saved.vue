@@ -15,10 +15,29 @@
     <p v-else class="text-xl font-semibold text-center mb-6">
       NO SAVED JOBS
     </p>
+    <div v-if="isMobile">
+      <router-link
+        v-for="job in saved"
+        :to="{
+          name: 'details',
+          params: {
+            id: job.id,
+            job,
+          },
+        }"
+        :key="job.id"
+        class="border-2 border-lightGray rounded-lg shadow-sm flex p-2 mb-4 hover:shadow-lg hover:border-mainBlue cursor-pointer"
+      >
+        <JobBox :job="job" :editing="editing" />
+      </router-link>
+    </div>
     <div
+      v-else
       v-for="job in saved"
       :key="job.id"
+      :id="job.id"
       class="border-2 border-lightGray rounded-lg shadow-sm flex p-2 mb-4 hover:shadow-lg hover:border-mainBlue cursor-pointer"
+      @click="setCurrentJobView(job.id)"
     >
       <JobBox :job="job" :editing="editing" />
     </div>
@@ -43,7 +62,12 @@ export default {
     setEditState() {
       this.editing = !this.editing;
     },
+    setCurrentJobView(id) {
+      if (!this.editing) {
+        this.$store.commit("setCurrentJobView", { id });
+      }
+    },
   },
-  computed: mapState(["saved"]),
+  computed: mapState(["saved", "isMobile"]),
 };
 </script>

@@ -21,6 +21,7 @@
 //TODO: Search form and desktop menu need work in space from small desktop to tablet.
 //TODO: Tablet JobDetails needs more bottom padding.
 //TODO: Tablet navbar --> larger logo and site title.
+//TODO: Error message --> message about slow API.
 <script>
   import Navbar from "./components/Navbar.vue";
   import JobDetails from "./components/JobDetails";
