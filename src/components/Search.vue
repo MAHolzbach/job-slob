@@ -1,11 +1,11 @@
 <template>
   <div class="w-full my-0 mx-auto lg:max-w-full">
     <div class="lg:bg-cover search-form__wrapper">
-      <p class="pb-6 text-center lg:font-semibold">
+      <p class="pb-6 mt-6 text-center lg:font-semibold">
         Search the GitHub Jobs database for the next step in your career!
       </p>
       <form
-        class="shadow-lg rounded-lg px-8 pt-6 pb-8 mb-6 border lg:flex lg:items-center lg:jutify-between lg:rounded-t-none search-form"
+        class="shadow-lg rounded-lg px-8 pt-6 pb-8 mb-6 border xl:flex lg:items-center lg:jutify-between lg:rounded-t-none search-form"
         @submit="submitSearch"
       >
         <div class="mb-4 lg:flex-1 lg:mr-4">

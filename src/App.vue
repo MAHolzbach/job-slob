@@ -3,7 +3,7 @@
     <div class="flex flex-col justify-between w-full items-center lg:flex-row lg:items-start">
       <Navbar />
       <div
-        class="pt-24 px-6 w-full lg:px-2 lg:pt-6 lg:pb-20 lg:flex lg:justify-center lg:w-8/12 lg:ml-290 lg:mr-496"
+        class="pt-24 px-6 w-full lg:px-2 lg:pt-6 lg:pb-20 lg:flex lg:justify-center lg:w-8/12 lg:ml-290 lg:mr-searchMarginRight"
       >
         <router-view />
       </div>
@@ -17,11 +17,7 @@
     <Footer />
   </div>
 </template>
-//TODO: Show job details on saved jobs view upon clicking a saved job.
-//TODO: Search form and desktop menu need work in space from small desktop to tablet.
-//TODO: Tablet JobDetails needs more bottom padding.
-//TODO: Tablet navbar --> larger logo and site title.
-//TODO: Error message --> message about slow API.
+
 <script>
   import Navbar from "./components/Navbar.vue";
   import JobDetails from "./components/JobDetails";

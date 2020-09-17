@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-4 py-6">
+  <div class="w-full px-4 pt-6 pb-6 md:pb-20 lg:pb-6">
     <div class="flex flex-col items-center w-full">
       <img
         v-if="job.company_logo"

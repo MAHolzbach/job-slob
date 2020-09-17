@@ -90,7 +90,7 @@ const store = new Vuex.Store({
   },
   mutations: {
     setIsMobile(state) {
-      state.isMobile = window.innerWidth < 768;
+      state.isMobile = window.innerWidth < 1024;
     },
     updateSearchParams(state, payload) {
       if (payload.name === "what") {
@@ -143,7 +143,8 @@ const store = new Vuex.Store({
           state.searchResults = [];
           state.error = {
             show: true,
-            message: "No jobs found for that search. Please try again!",
+            message:
+              "No jobs found for that search, but GitHub's API can run slow sometimes. Please try again!",
           };
           state.showSpinner = false;
         });

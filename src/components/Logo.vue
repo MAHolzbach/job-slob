@@ -6,7 +6,7 @@
     <p class="hidden lg:inline m-1 lg:m-4 text-2xl lg:text-4xl">
       {{ companyName }}
     </p>
-    <img :src="logo" alt="logo" class="w-20 lg:w-40" />
+    <img :src="logo" alt="logo" class="w-20 md:w-24 lg:w-40" />
     <h2 class="hidden lg:inline lg:text-center lg:text-2xl">
       Git a Job
     </h2>
